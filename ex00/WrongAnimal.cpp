@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/13 20:00:22 by skock             #+#    #+#             */
-/*   Updated: 2025/06/16 15:23:49 by skock            ###   ########.fr       */
+/*   Created: 2025/06/16 15:03:28 by skock             #+#    #+#             */
+/*   Updated: 2025/06/16 15:24:20 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "WrongAnimal.hpp"
 
-#include <iostream>
-
-class Animal
+WrongAnimal::WrongAnimal()
 {
-	protected:
-		std::string type;
-	public:
-		Animal();
-		virtual ~Animal();
-		//
-		virtual void	makesound() const;
-		std::string		getType() const;
-};
+	this->type = "WrongAnimal";
+	std::cout << "WrongAnimal constructor called" << std::endl;
+}
 
+WrongAnimal::~WrongAnimal() {std::cout << "WrongAnimal destructor called" << std::endl;}
+
+void	WrongAnimal::makeSound() const {std::cout << "WrongAnimal sound" << std::endl;}
+
+std::string	WrongAnimal::getType() const {return std::string(this->type);}

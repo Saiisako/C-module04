@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/13 20:00:22 by skock             #+#    #+#             */
-/*   Updated: 2025/06/16 15:23:49 by skock            ###   ########.fr       */
+/*   Created: 2025/06/16 14:31:06 by skock             #+#    #+#             */
+/*   Updated: 2025/06/16 14:51:47 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
+#include "Animal.hpp"
 
-class Animal
+class Dog : public Animal
 {
-	protected:
-		std::string type;
 	public:
-		Animal();
-		virtual ~Animal();
-		//
-		virtual void	makesound() const;
-		std::string		getType() const;
+		Dog();
+		~Dog();
+		void	makeSound() const;
 };
-

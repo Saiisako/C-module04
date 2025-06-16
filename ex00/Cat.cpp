@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/13 20:00:22 by skock             #+#    #+#             */
-/*   Updated: 2025/06/16 15:23:49 by skock            ###   ########.fr       */
+/*   Created: 2025/06/16 14:30:44 by skock             #+#    #+#             */
+/*   Updated: 2025/06/16 15:00:40 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Cat.hpp"
 
-#include <iostream>
-
-class Animal
+Cat::Cat()
 {
-	protected:
-		std::string type;
-	public:
-		Animal();
-		virtual ~Animal();
-		//
-		virtual void	makesound() const;
-		std::string		getType() const;
-};
+	std::cout << "Cat constructor called" << std::endl;
+	this->type = "Cat";
+}
 
+Cat::~Cat() {std::cout << "Cat destructor called" << std::endl;}
+
+void Cat::makeSound() const {std::cout << "Miaou Miaou" << std::endl;}
