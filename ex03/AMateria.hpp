@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/16 14:30:44 by skock             #+#    #+#             */
-/*   Updated: 2025/06/19 11:31:20 by skock            ###   ########.fr       */
+/*   Created: 2025/06/19 14:39:24 by skock             #+#    #+#             */
+/*   Updated: 2025/06/19 14:44:31 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#pragma once
 
-Cat::Cat()
+#include <iostream>
+
+class AMateria
 {
-	std::cout << "Cat constructor called" << std::endl;
-	this->type = "Cat";
-}
+	protected:
 
-Cat::~Cat() {std::cout << "Cat destructor called" << std::endl;}
-
-void Cat::makeSound() const {std::cout << "Miaou Miaou" << std::endl;}
-
-Cat::Cat(const Cat &copy)
-{
-	*this = copy;
-}
-
-Cat &Cat::operator=(const Cat &other)
-{
-	if (this != &other)
-	{
-		this->type = other.type;
-	}
-	return (*this);
-}
+	public:
+		AMateria();
+		AMateria(std::string const & type);
+		AMateria(const AMateria& copy);
+		virtual ~AMateria();
+		AMateria& operator=(const AMateria& other);
+		//
+		std::string const & getType() const; //Returns the materia type
+		virtual AMateria* clone() const = 0;
+		virtual void use(ICharacter& target);
+};

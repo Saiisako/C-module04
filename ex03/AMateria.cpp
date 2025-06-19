@@ -1,37 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/16 14:30:44 by skock             #+#    #+#             */
-/*   Updated: 2025/06/19 11:31:20 by skock            ###   ########.fr       */
+/*   Created: 2025/06/19 14:44:48 by skock             #+#    #+#             */
+/*   Updated: 2025/06/19 14:52:42 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "AMateria.hpp"
 
-Cat::Cat()
+AMateria::AMateria(void)
 {
-	std::cout << "Cat constructor called" << std::endl;
-	this->type = "Cat";
+	
 }
 
-Cat::~Cat() {std::cout << "Cat destructor called" << std::endl;}
-
-void Cat::makeSound() const {std::cout << "Miaou Miaou" << std::endl;}
-
-Cat::Cat(const Cat &copy)
+AMateria::AMateria(std::string const &type)
 {
-	*this = copy;
+	
 }
 
-Cat &Cat::operator=(const Cat &other)
+AMateria::AMateria(const AMateria& copy)
 {
-	if (this != &other)
-	{
-		this->type = other.type;
-	}
-	return (*this);
+	
+}
+AMateria::~AMateria()
+{
+	
+}
+
+AMateria& AMateria::operator=(const AMateria& other)
+{
+	
+}
+
+std::string const &getType() const
+{
+	
+}
+
+AMateria*	clone()
+{
+	
+}
+
+void		AMateria::use(ICharacter& target)
+{
+	
 }

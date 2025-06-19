@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/16 14:30:44 by skock             #+#    #+#             */
-/*   Updated: 2025/06/19 11:31:20 by skock            ###   ########.fr       */
+/*   Created: 2025/06/19 15:06:34 by skock             #+#    #+#             */
+/*   Updated: 2025/06/19 15:07:50 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#pragma once
 
-Cat::Cat()
+class ICharacter
 {
-	std::cout << "Cat constructor called" << std::endl;
-	this->type = "Cat";
-}
-
-Cat::~Cat() {std::cout << "Cat destructor called" << std::endl;}
-
-void Cat::makeSound() const {std::cout << "Miaou Miaou" << std::endl;}
-
-Cat::Cat(const Cat &copy)
-{
-	*this = copy;
-}
-
-Cat &Cat::operator=(const Cat &other)
-{
-	if (this != &other)
-	{
-		this->type = other.type;
-	}
-	return (*this);
-}
+	public:
+		virtual ~ICharacter();
+		virtual std::string const & getName() const = 0;
+		virtual void equip(AMateria* m) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter& target) = 0;
+};

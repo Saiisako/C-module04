@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/16 14:30:44 by skock             #+#    #+#             */
-/*   Updated: 2025/06/19 11:31:20 by skock            ###   ########.fr       */
+/*   Created: 2025/06/13 19:59:58 by skock             #+#    #+#             */
+/*   Updated: 2025/06/19 14:29:22 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 #include "Cat.hpp"
+#include "WrongCat.hpp"
+#include "Dog.hpp"
+#include "Brain.hpp"
 
-Cat::Cat()
+int main()
 {
-	std::cout << "Cat constructor called" << std::endl;
-	this->type = "Cat";
-}
-
-Cat::~Cat() {std::cout << "Cat destructor called" << std::endl;}
-
-void Cat::makeSound() const {std::cout << "Miaou Miaou" << std::endl;}
-
-Cat::Cat(const Cat &copy)
-{
-	*this = copy;
-}
-
-Cat &Cat::operator=(const Cat &other)
-{
-	if (this != &other)
-	{
-		this->type = other.type;
-	}
-	return (*this);
+	Animal test();
+	return 0;
 }

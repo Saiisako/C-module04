@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/16 14:30:44 by skock             #+#    #+#             */
-/*   Updated: 2025/06/19 11:31:20 by skock            ###   ########.fr       */
+/*   Created: 2025/06/16 14:31:06 by skock             #+#    #+#             */
+/*   Updated: 2025/06/19 14:01:56 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#pragma once
 
-Cat::Cat()
+#include "Animal.hpp"
+#include "Brain.hpp"
+
+class Dog : public Animal
 {
-	std::cout << "Cat constructor called" << std::endl;
-	this->type = "Cat";
-}
-
-Cat::~Cat() {std::cout << "Cat destructor called" << std::endl;}
-
-void Cat::makeSound() const {std::cout << "Miaou Miaou" << std::endl;}
-
-Cat::Cat(const Cat &copy)
-{
-	*this = copy;
-}
-
-Cat &Cat::operator=(const Cat &other)
-{
-	if (this != &other)
-	{
-		this->type = other.type;
-	}
-	return (*this);
-}
+	private:
+		Brain *brain;
+	public:
+		Dog();
+		~Dog();
+		Dog(const Dog& copy); // Constructeur de copie
+		Dog& operator=(const Dog& other); // Opérateur d'affectation
+		void	makeSound() const;
+		void	set_brain(int index, std::string idea);
+		void	get_brain(void);
+		
+};

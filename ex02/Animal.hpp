@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/16 14:30:44 by skock             #+#    #+#             */
-/*   Updated: 2025/06/19 11:31:20 by skock            ###   ########.fr       */
+/*   Created: 2025/06/13 20:00:22 by skock             #+#    #+#             */
+/*   Updated: 2025/06/19 14:26:45 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#pragma once
 
-Cat::Cat()
+#include <iostream>
+
+class Animal
 {
-	std::cout << "Cat constructor called" << std::endl;
-	this->type = "Cat";
-}
+	protected:
+		std::string type;
+	public:
+		Animal(); // Constructeur par défaut
+		virtual ~Animal(); // Deconstructeur
+		Animal(const Animal& copy); // Constructeur de copie
+		Animal& operator=(const Animal& other); // Opérateur d'affectation
+		//
+		virtual void	makesound() const = 0;
+		std::string		getType() const;
+};
 
-Cat::~Cat() {std::cout << "Cat destructor called" << std::endl;}
-
-void Cat::makeSound() const {std::cout << "Miaou Miaou" << std::endl;}
-
-Cat::Cat(const Cat &copy)
-{
-	*this = copy;
-}
-
-Cat &Cat::operator=(const Cat &other)
-{
-	if (this != &other)
-	{
-		this->type = other.type;
-	}
-	return (*this);
-}
