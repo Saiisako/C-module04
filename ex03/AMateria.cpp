@@ -6,7 +6,7 @@
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 14:44:48 by skock             #+#    #+#             */
-/*   Updated: 2025/06/19 14:52:42 by skock            ###   ########.fr       */
+/*   Updated: 2025/06/21 14:57:42 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ AMateria& AMateria::operator=(const AMateria& other)
 	
 }
 
-std::string const &getType() const
+std::string const &getType()
 {
 	
 }
