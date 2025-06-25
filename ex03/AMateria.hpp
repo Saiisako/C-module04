@@ -6,17 +6,18 @@
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 14:39:24 by skock             #+#    #+#             */
-/*   Updated: 2025/06/25 18:07:11 by skock            ###   ########.fr       */
+/*   Updated: 2025/06/25 18:27:48 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include "IMateriaSource.hpp"
 
 class ICharacter;
 
-class AMateria
+class AMateria : public IMateriaSource
 {
 	protected:
 		std::string type;
@@ -29,5 +30,7 @@ class AMateria
 		std::string const & getType() const;
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);
+		void learnMateria(AMateria*);
+		AMateria* createMateria(std::string const & type);
 };
 

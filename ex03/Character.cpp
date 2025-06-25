@@ -6,11 +6,12 @@
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 17:43:49 by skock             #+#    #+#             */
-/*   Updated: 2025/06/25 18:12:51 by skock            ###   ########.fr       */
+/*   Updated: 2025/06/25 18:21:25 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+#include "ICharacter.hpp"
 
 Character::Character() : _inventory({NULL, NULL, NULL, NULL}), _name("default") {std::cout << "Character constructor called" << std::endl;}
 
@@ -19,6 +20,8 @@ Character::Character(const std::string name) : _inventory({NULL, NULL, NULL, NUL
 Character::~Character() {std::cout << "Character destructor called" << std::endl;}
 
 std::string const &Character::getName() const {return (this->_name);}
+
+ICharacter::~ICharacter() {}
 
 void Character::equip(AMateria *m)
 {
