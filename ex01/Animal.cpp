@@ -6,7 +6,7 @@
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 20:00:29 by skock             #+#    #+#             */
-/*   Updated: 2025/06/19 11:30:27 by skock            ###   ########.fr       */
+/*   Updated: 2025/06/25 18:40:13 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,4 @@ Animal::Animal(const Animal &copy)
 	*this = copy;
 }
 
-Animal &Animal::operator=(const Animal &other)
-{
-	if (this != &other)
-	{
-		this->type = other.type;
-	}
-	return (*this);
-}
+Animal &Animal::operator=(const Animal &other) {return (this != &other) ? (this->type = other.type, *this) : *this;}

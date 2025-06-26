@@ -6,14 +6,14 @@
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 14:56:19 by skock             #+#    #+#             */
-/*   Updated: 2025/06/25 18:16:47 by skock            ###   ########.fr       */
+/*   Updated: 2025/06/26 11:52:16 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 #include "Character.hpp"
 
-Ice::Ice() {std::cout << "Ice constructor called" << std::endl;}
+Ice::Ice() : AMateria("ice") {std::cout << "Ice constructor called" << std::endl;}
 
 Ice::~Ice() {std::cout << "Ice destructor called" << std::endl;}
 

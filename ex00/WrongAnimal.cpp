@@ -6,7 +6,7 @@
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 15:03:28 by skock             #+#    #+#             */
-/*   Updated: 2025/06/19 11:33:17 by skock            ###   ########.fr       */
+/*   Updated: 2025/06/25 18:39:58 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,6 @@ void	WrongAnimal::makeSound() const {std::cout << "WrongAnimal sound" << std::en
 
 std::string	WrongAnimal::getType() const {return std::string(this->type);}
 
-WrongAnimal::WrongAnimal(const WrongAnimal &copy)
-{
-	*this = copy;
-}
+WrongAnimal::WrongAnimal(const WrongAnimal &copy) {*this = copy;}
 
-WrongAnimal &WrongAnimal::operator=(const WrongAnimal &other)
-{
-	if (this != &other)
-	{
-		this->type = other.type;
-	}
-	return (*this);
-}
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal &other) {return (this != &other) ? (this->type = other.type, *this) : *this;}

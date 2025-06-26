@@ -1,14 +1,16 @@
 NAME = a.out
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address,leak
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g #-fsanitize=address,leak
 
 RM = rm -rf
 
 SRCS =	main.cpp\
 		AMateria.cpp\
+		Character.cpp\
 		Ice.cpp\
 		Cure.cpp\
+		MateriaSource.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 

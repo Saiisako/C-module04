@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/16 14:30:47 by skock             #+#    #+#             */
-/*   Updated: 2025/06/25 18:31:08 by skock            ###   ########.fr       */
+/*   Created: 2025/06/26 10:11:26 by skock             #+#    #+#             */
+/*   Updated: 2025/06/26 11:46:15 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Animal.hpp"
+#include "IMateriaSource.hpp"
 
-class Cat : public Animal
+class MateriaSource : public IMateriaSource
 {
+	private:
+		AMateria*	_materias[4];
 	public:
-		/// CANONIC FORM
-		Cat();
-		~Cat();
-		Cat(const Cat& copy); // Constructeur de copie
-		Cat& operator=(const Cat& other); // Opérateur d'affectation
-		///
-		void	makeSound() const;
+		MateriaSource();
+		MateriaSource(const MateriaSource& copy);
+		MateriaSource& operator=(const MateriaSource& other);
+		~MateriaSource();
+		void	get_materia();
+		void learnMateria(AMateria* materia);
+		AMateria* createMateria(std::string const & type);
 };
+
