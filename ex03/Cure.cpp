@@ -6,16 +6,16 @@
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 14:56:17 by skock             #+#    #+#             */
-/*   Updated: 2025/06/26 11:51:43 by skock            ###   ########.fr       */
+/*   Updated: 2025/06/26 13:29:19 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 #include "Character.hpp"
 
-Cure::Cure() : AMateria("cure") {std::cout << "Cure constructor called" << std::endl;}
+Cure::Cure() : AMateria("cure") {}
 
-Cure::~Cure() {std::cout << "Cure destructor called" << std::endl;}
+Cure::~Cure() {}
 
 Cure::Cure(const Cure &copy) {*this = copy;}
 

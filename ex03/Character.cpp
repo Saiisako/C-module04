@@ -6,7 +6,7 @@
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 17:43:49 by skock             #+#    #+#             */
-/*   Updated: 2025/06/26 12:24:10 by skock            ###   ########.fr       */
+/*   Updated: 2025/06/26 13:44:07 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,34 @@
 
 Character::Character() 
 {
-	std::cout << "Character constructor called" << std::endl;
 	_name = "default";
 	_inventory[0] = NULL;
 	_inventory[1] = NULL;
 	_inventory[2] = NULL;
 	_inventory[3] = NULL;
+
+	for (size_t i = 0; i < 100; i++)
+		_stock[i] = NULL;
 }
 
 Character::Character(const std::string name)
 {
-	std::cout << "Character constructor called" << std::endl;
 	_name = name;
 	_inventory[0] = NULL;
 	_inventory[1] = NULL;
 	_inventory[2] = NULL;
 	_inventory[3] = NULL;
+
+	for (size_t i = 0; i < 100; i++)
+		_stock[i] = NULL;
 }
 
 Character::~Character()
 {
 	for (size_t i = 0; i < 4; i++)
 		delete _inventory[i];
-	std::cout << "Character destructor called" << std::endl;
+	for (size_t i = 0; i < 100; i++)
+		delete _stock[i];
 }
 
 std::string const &Character::getName() const {return (this->_name);}
@@ -81,7 +86,6 @@ void Character::equip(AMateria *m)
 	{
 		if (!this->_inventory[i])
 		{
-			std::cout << "here" << std::endl;
 			_inventory[i] = m;
 			return ;
 		}
@@ -106,23 +110,28 @@ void Character::unequip(int idx)
 	add_to_stock(goto_stock);
 }
 
-void Character::use(int idx, ICharacter &target)
-{
-	if (_inventory[idx])
-		std::cout << this->getName() << " uses materia: [" << _inventory[idx]->getType() << "] on " << target.getName() << std::endl;
-	this->_inventory[idx]->use(target);
-}
 
 void Character::add_to_stock(AMateria *goto_stock)
 {
-	for (int i = 0; this->_stock[i]; i++)
+	for (int i = 0; i < 100; i++)
 	{
 		if (!_stock[i])
 		{
 			_stock[i] = goto_stock;
 			std::cout << "Materia has been sent to the stock." << std::endl;
+			return ;
 		}
 	}
+}
+
+void Character::use(int idx, ICharacter &target)
+{
+	if (!this->_inventory[idx])
+	{
+		std::cout << "No materia available at " << idx << std::endl;
+		return ;
+	}
+	this->_inventory[idx]->use(target);
 }
 
 void Character::get_inventory()

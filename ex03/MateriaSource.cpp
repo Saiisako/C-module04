@@ -6,7 +6,7 @@
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 10:14:42 by skock             #+#    #+#             */
-/*   Updated: 2025/06/26 12:25:02 by skock            ###   ########.fr       */
+/*   Updated: 2025/06/26 13:29:58 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 MateriaSource::MateriaSource()
 {
-	std::cout << "MateriaSource constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 		_materias[i] = NULL;
 }
@@ -51,7 +50,6 @@ MateriaSource::~MateriaSource()
 {
 	for (size_t i = 0; i < 4; i++)
 		delete this->_materias[i];
-	std::cout << "MateriaSource destructor called" << std::endl;
 }
 
 void MateriaSource::get_materia()
@@ -70,7 +68,6 @@ void MateriaSource::learnMateria(AMateria *materia)
 		if (!_materias[i])
 		{
 			_materias[i] = materia->clone();
-			std::cout << "Materia learned" << std::endl;
 			delete materia;
 			return;
 		}
@@ -82,7 +79,6 @@ AMateria *MateriaSource::createMateria(std::string const &type)
 	for (int i = 0; i < 4; i++)
 	{
 		if (_materias[i] && _materias[i]->getType() == type) {
-			std::cout << "coucou" << std::endl;
 			return _materias[i]->clone();
 		}
 	}
