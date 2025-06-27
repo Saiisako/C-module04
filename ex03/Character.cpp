@@ -6,7 +6,7 @@
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 17:43:49 by skock             #+#    #+#             */
-/*   Updated: 2025/06/26 13:44:07 by skock            ###   ########.fr       */
+/*   Updated: 2025/06/27 13:11:48 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void Character::equip(AMateria *m)
 			return ;
 		}
 	}
+	delete m;
 	std::cout << "Materia hasn't been equiped : inventory full." << std::endl;
 }
 
@@ -131,7 +132,13 @@ void Character::use(int idx, ICharacter &target)
 		std::cout << "No materia available at " << idx << std::endl;
 		return ;
 	}
-	this->_inventory[idx]->use(target);
+	if (idx > 3 || idx < 0)
+	{
+		std::cout << "unable to use materia because index slot [" << idx << "] incorrect."<< std::endl;
+		return ;
+	}
+	else
+		this->_inventory[idx]->use(target);
 }
 
 void Character::get_inventory()
@@ -140,5 +147,5 @@ void Character::get_inventory()
 	{
 		if (this->_inventory[i])
 			std::cout << i << " char :  "<< this->_inventory[i]->getType() << std::endl;
-	}	
+	}
 }

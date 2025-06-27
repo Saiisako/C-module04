@@ -6,7 +6,7 @@
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 14:31:32 by skock             #+#    #+#             */
-/*   Updated: 2025/06/19 14:09:42 by skock            ###   ########.fr       */
+/*   Updated: 2025/06/26 18:37:33 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Dog::~Dog()
 
 void Dog::makeSound() const {std::cout << "Wouf Wouf" << std::endl;}
 
-Dog::Dog(const Dog &copy)
+Dog::Dog(const Dog &copy) : Animal(copy)
 {
 	this->brain = new Brain(*copy.brain);
 }

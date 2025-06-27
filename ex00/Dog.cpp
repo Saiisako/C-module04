@@ -6,7 +6,7 @@
 /*   By: skock <skock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 14:31:32 by skock             #+#    #+#             */
-/*   Updated: 2025/06/25 18:38:49 by skock            ###   ########.fr       */
+/*   Updated: 2025/06/26 18:35:16 by skock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,4 @@ Dog &Dog::operator=(const Dog &other) {return (this != &other) ? (this->type = o
 
 void Dog::makeSound() const {std::cout << "Wouf Wouf" << std::endl;}
 
-Dog::Dog(const Dog &copy) {*this = copy;}
-
+Dog::Dog(const Dog &copy) : Animal(copy) {*this = copy;}
